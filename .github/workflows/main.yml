@@ -57,6 +57,7 @@ jobs:
 
       - name: Install dependencies and generate PDF
         run: |
+          brew update
           brew install plutobook
           npm install plutoprint
           node hello.js

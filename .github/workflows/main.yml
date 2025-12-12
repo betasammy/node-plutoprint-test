@@ -1,0 +1,68 @@
+name: Test PlutoBook Node Module
+
+on: [push, pull_request]
+
+jobs:
+  test_windows:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies and generate PDF
+        run: |
+          npm install plutoprint
+          node hello.js
+
+      - name: Upload hello.pdf
+        uses: actions/upload-artifact@v4
+        with:
+          name: hello-win-pdf
+          path: hello.pdf
+
+  test_linux:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies and generate PDF
+        run: |
+          npm install plutoprint
+          node hello.js
+
+      - name: Upload hello.pdf
+        uses: actions/upload-artifact@v4
+        with:
+          name: hello-linux-pdf
+          path: hello.pdf
+
+  test_macos:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies and generate PDF
+        run: |
+          brew install plutobook
+          npm install plutoprint
+          node hello.js
+
+      - name: Upload hello.pdf
+        uses: actions/upload-artifact@v4
+        with:
+          name: hello-macos-pdf
+          path: hello.pdf

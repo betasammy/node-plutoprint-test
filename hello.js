@@ -1,5 +1,7 @@
-const { createBook } = require('plutoprint')
+const { createBook, plutobookBuildInfo } = require('plutoprint')
 
 book = createBook({size:'a3'})
 book.loadUrl('https://en.wikipedia.org/wiki/Main_Page')
 book.writeToPdf('hello.pdf')
+
+console.log(plutobookBuildInfo)

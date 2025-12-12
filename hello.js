@@ -1,4 +1,4 @@
-const { createCanvas } = require('plutoprint')
+const { createBook } = require('plutoprint')
 
 book = createBook({size:'a3'})
 book.loadUrl('https://en.wikipedia.org/wiki/Main_Page')

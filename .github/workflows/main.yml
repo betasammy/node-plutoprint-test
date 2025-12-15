@@ -60,6 +60,7 @@ jobs:
           brew update
           brew install plutobook
           npm install plutoprint
+          npm fund
           node hello.js
 
       - name: Upload hello.pdf
